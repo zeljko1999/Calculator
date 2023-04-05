@@ -28,6 +28,7 @@ function operate(a,operation,b){
 const inputButtons = document.querySelectorAll(".input-button");
 const operatorButtons = document.querySelectorAll(".operation-button");
 const equalsButton = document.querySelector(".equals-button");
+const clearButton = document.querySelector(".clear-button");
 const display = document.querySelector(".display");
 let displayValue = 0;
 let operant1=0;
@@ -67,4 +68,12 @@ equalsButton.addEventListener("click", function() {
     operant1 = 0;
     operant2 = 0;
     operation = "";
+})
+
+clearButton.addEventListener("click", function(){
+    operant1 = 0;
+    operation = 0;
+    operant2 = 0;
+    displayValue = 0;
+    display.textContent = 0;
 })
