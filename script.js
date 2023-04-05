@@ -30,6 +30,7 @@ const operatorButtons = document.querySelectorAll(".operation-button");
 const equalsButton = document.querySelector(".equals-button");
 const clearButton = document.querySelector(".clear-button");
 const deleteButton = document.querySelector(".delete-button");
+const current = document.querySelector(".current-result");
 const display = document.querySelector(".display");
 let displayValue = 0;
 let operant1=0;
@@ -57,18 +58,21 @@ operatorButtons.forEach((operatorButton) => {
             }
         operation = operatorButton.textContent;
         display.textContent = 0;
-        console.log(operant1 + " " + operation);
+        current.textContent = operant1 + " " + operation;
             
     })
 })
 
 equalsButton.addEventListener("click", function() {
+    if(operation == "=")
+            return 0;
     operant2 = displayValue;
+    current.textContent += " " + operant2 + " =";
     displayValue = operate(operant1, operation, operant2);
     display.textContent = displayValue;
     operant1 = 0;
     operant2 = 0;
-    operation = "";
+    operation = "=";
 })
 
 clearButton.addEventListener("click", function(){
@@ -77,6 +81,7 @@ clearButton.addEventListener("click", function(){
     operant2 = 0;
     displayValue = 0;
     display.textContent = 0;
+    current.textContent = "";
 })
 
 deleteButton.addEventListener("click", function() {
