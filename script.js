@@ -29,6 +29,7 @@ const inputButtons = document.querySelectorAll(".input-button");
 const operatorButtons = document.querySelectorAll(".operation-button");
 const equalsButton = document.querySelector(".equals-button");
 const clearButton = document.querySelector(".clear-button");
+const deleteButton = document.querySelector(".delete-button");
 const display = document.querySelector(".display");
 let displayValue = 0;
 let operant1=0;
@@ -76,4 +77,16 @@ clearButton.addEventListener("click", function(){
     operant2 = 0;
     displayValue = 0;
     display.textContent = 0;
+})
+
+deleteButton.addEventListener("click", function() {
+    if(display.textContent == "0")
+            display.textContent = 0;
+        else if(display.textContent.length == "1")
+            display.textContent = 0;
+        else 
+            {
+                display.textContent= display.textContent.slice(0,-1);
+            }
+    displayValue = Number(display.textContent);
 })
