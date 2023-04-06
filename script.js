@@ -82,6 +82,9 @@ equalsButton.addEventListener("click", function() {
         return 0;
     current.textContent += " " + operant2 + " =";
     displayValue = operate(operant1, operation, operant2);
+    displayValue = parseFloat(displayValue);
+    if(!Number.isInteger(displayValue))
+        displayValue= displayValue.toFixed(2);
     display.textContent = displayValue;
     operant1 = 0;
     operant2 = 0;
