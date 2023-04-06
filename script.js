@@ -75,7 +75,11 @@ operatorButtons.forEach((operatorButton) => {
 equalsButton.addEventListener("click", function() {
     if(operation == "=")
             return 0;
+    if(operant2 == 0 && operant1 == 0)
+            return 0;
     operant2 = displayValue;
+    if(operant2 == 0)
+        return 0;
     current.textContent += " " + operant2 + " =";
     displayValue = operate(operant1, operation, operant2);
     display.textContent = displayValue;
