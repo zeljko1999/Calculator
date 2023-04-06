@@ -38,11 +38,20 @@ let operant2=0;
 let operation = "";
 inputButtons.forEach((inputButton) => {
     inputButton.addEventListener("click", function(){
-        if(display.textContent == "0")
-            display.textContent = inputButton.textContent;
-        else
-            display.textContent += inputButton.textContent;
-        displayValue = Number(display.textContent);
+        if(inputButton.textContent == ".")
+        {
+            let current = display.textContent.split("");
+            for(let i=0;i<current.length;i++)
+                {
+                    if(current[i] == ".")
+                        return 0;
+                }
+        }
+            if(display.textContent == "0")
+                display.textContent = inputButton.textContent;
+            else
+                display.textContent += inputButton.textContent;
+            displayValue = Number(display.textContent);
     })
 })
 
@@ -95,3 +104,4 @@ deleteButton.addEventListener("click", function() {
             }
     displayValue = Number(display.textContent);
 })
+
